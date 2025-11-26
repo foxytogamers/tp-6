@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP6 - Tabla Comparativa Estilizada</title>
+    <!-- Fuente Externa de Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Requisito CSS: Fuente Externa, padding y estilos de texto */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-weight: 800;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Requisito HTML: Tabla, Requisito CSS: border-collapse */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        /* Requisito HTML: caption */
+        caption {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding: 10px;
+            color: #2980b9;
+        }
+
+        /* Estilo para th y td */
+        th, td {
+            /* Requisito CSS: padding */
+            padding: 14px 18px;
+            border: 1px solid #dfe6e9;
+        }
+
+        /* Requisito CSS: Colores personalizados para encabezados (thead) */
+        thead th {
+            background-color: #34495e; /* Azul oscuro/gris */
+            color: #ecf0f1; /* Blanco hueso */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estilos para las filas alternadas (Requisito CSS: nth-child) */
+        /* Fila Impar (odd) */
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Gris muy claro */
+        }
+
+        /* Fila Par (even) */
+        tbody tr:nth-child(even) {
+            background-color: #ecf0f1; /* Gris claro */
+        }
+
+        /* Efecto visual atractivo */
+        tbody tr:hover {
+            background-color: #bdc3c7; /* Gris más oscuro al pasar el ratón */
+            transition: background-color 0.3s ease;
+            cursor: default;
+        }
+
+        /* Estilo para la columna de Fabricante (usada con rowspan) */
+        .manufacturer {
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #3498db !important; /* Azul más vibrante */
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 Informe Anual de Plataformas de Videojuegos</h1>
+        <p>Análisis de especificaciones técnicas y disponibilidad en el mercado global.</p>
+    </header>
+
+    <main>
+        <!-- Requisito HTML: table, caption, thead, tbody, tr, th, td -->
+        <table>
+            <caption>Comparativa de Consolas de Novena Generación (2025)</caption>
+            
+            <thead>
+                <tr>
+                    <!-- Requisito HTML: colspan (Unifica las celdas de especificaciones) -->
+                    <th rowspan="2" class="manufacturer">Fabricante</th>
+                    <th rowspan="2">Modelo</th>
+                    <th colspan="2">Rendimiento Principal</th>
+                    <th rowspan="2">Almacenamiento</th>
+                    <th rowspan="2">Precio Estimado (USD)</th>
+                </tr>
+                <tr>
+                    <!-- Estas columnas quedan debajo del colspan "Rendimiento Principal" -->
+                    <th>CPU (GHz)</th>
+                    <th>GPU (TFLOPs)</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <!-- Bloque SONY -->
+                <tr>
+                    <!-- Requisito HTML: rowspan (Agrupa todas las filas de SONY) -->
+                    <td rowspan="2" class="manufacturer">SONY</td>
+                    <td>PlayStation 5 (Disco)</td>
+                    <td>3.5</td>
+                    <td>10.28</td>
+                    <td>825 GB SSD</td>
+                    <td>$499</td>
+                </tr>
+                <tr>
+                    <td>PlayStation 5 (Digital)</td>
+                    <td>3.5</td>
+                    <td>10.28</td>
+                    <td>825 GB SSD</td>
+                    <td>$399</td>
+                </tr>
+                
+                <!-- Bloque MICROSOFT -->
+                <tr>
+                    <!-- Requisito HTML: rowspan (Agrupa todas las filas de MICROSOFT) -->
+                    <td rowspan="2" class="manufacturer">MICROSOFT</td>
+                    <td>Xbox Series X</td>
+                    <td>3.8</td>
+                    <td>12.00</td>
+                    <td>1 TB SSD</td>
+                    <td>$499</td>
+                </tr>
+                <tr>
+                    <td>Xbox Series S</td>
+                    <td>3.6</td>
+                    <td>4.00</td>
+                    <td>512 GB SSD</td>
+                    <td>$299</td>
+                </tr>
+                
+                <!-- Bloque NINTENDO -->
+                <tr>
+                    <td class="manufacturer">NINTENDO</td>
+                    <td>Switch OLED</td>
+                    <td>1.02</td>
+                    <td>1.00</td>
+                    <td>64 GB Flash</td>
+                    <td>$349</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <!-- Requisito HTML: footer -->
+        <p>&copy; 2025 Laboratorio de Programación - Tabla Informativa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
